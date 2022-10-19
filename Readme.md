@@ -72,8 +72,8 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 
 ## Proyecto 5
 
-    Crear un programa que simule un censo, que permita realizar consultas por cada departamento de El Salvador, por número de DUI.
-    Finalmente el programa debe implementar lo siguiente:
+    Crear un programa que simule un censo, que permita realizar consultas por cada departamento 
+    de El Salvador, por número de DUI. Finalmente el programa debe implementar lo siguiente:
 
     1.  Agregar registros: departamento, municipio, DUI, nombre, fecha de nacimiento, sexo, entre otros
     2.  Eliminar un registro
@@ -81,8 +81,9 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 
 ## Proyecto 6
 
-    Crear un programa que genere los diferentes partidos (selecciona el deporte de preferencia) para un campeonato de América, 
-    tomando en cuenta que cada país tiene un equipo. El usuario podrá realizar las siguientes acciones:
+    Crear un programa que genere los diferentes partidos (selecciona el deporte de preferencia) 
+    para un campeonato de América, tomando en cuenta que cada país tiene un equipo. 
+    El usuario podrá realizar las siguientes acciones:
 
     1.  Agregar registros: nombre del equipo, numero de puntos, país, entre otros
     2.  Eliminar los equipos
