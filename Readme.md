@@ -25,64 +25,69 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 
 ## Proyecto 1
 
-> Crear un programa que simule un diccionario que cuente como máximo con 5 palabras por cada letra del alfabeto, que le permita al usuario realizar las siguientes acciones:
->
-> 1.  Agregar palabras, significado, sinónimo, antónimo, entre otros
-> 2.  Eliminar una palabra
-> 3.  Buscar palabras en específico
+    Crear un programa que simule un diccionario que cuente como máximo con 5 palabras por cada letra 
+    del alfabeto, que le permita al usuario realizar las siguientes acciones:
+
+    1.  Agregar palabras, significado, sinónimo, antónimo, entre otros
+    2.  Eliminar una palabra
+    3.  Buscar palabras en específico
 
 ## Proyecto 2
 
-> Crear un programa que simule un directorio telefónico que cuente como máximo con 5 registros por cada letra del alfabeto, que le permita al usuario realizar las siguientes acciones:
->
-> 1.  Agregar registros: nombre, teléfono, entre otros
-> 2.  Eliminar un registro
-> 3.  Buscar un registro en específico
+    Crear un programa que simule un directorio telefónico que cuente como máximo con 5 registros 
+    por cada letra del alfabeto, que le permita al usuario realizar las siguientes acciones:
+   
+    1.  Agregar registros: nombre, teléfono, entre otros
+    2.  Eliminar un registro
+    3.  Buscar un registro en específico
 
 ## Proyecto 3
 
-> Crear un programa que simule un almacén de datos utilizando un árbol, donde cada nodo del árbol sea una calle que contenga como campos:
->
-> - Identificador
-> - Nombre de calle
-> - Privada o pública
-> - Casas
-
-> Donde el campo casas, será una lista simple y en cada nodo almacenará:
->
-> - Número de casa
-> - Color
-> - Cantidad de habitantes
-
-> El programa permitirá al usuario realizar las siguientes acciones:
->
-> - Agregar registros
-> - Eliminar un registro
-> - Buscar un registro en específico
+    Crear un programa que simule un almacén de datos utilizando un árbol, 
+    donde cada nodo del árbol sea una calle que contenga como campos:
+        - Identificador
+        - Nombre de calle
+        - Privada o pública
+        - Casas   
+   
+    Donde el campo casas, será una lista simple y en cada nodo almacenará:
+        - Número de casa
+        - Color
+        - Cantidad de habitantes   
+    
+    El programa permitirá al usuario realizar las siguientes acciones:
+        - Agregar registros
+        - Eliminar un registro
+        - Buscar un registro en específico
 
 ## Proyecto 4
 
-> Crear un programa que simule el sistema de consultas de un padrón electoral, que cuente como máximo con 5 registros por cada departamento de El Salvador, finalmente el programa debe implementar lo siguiente:
->
-> 1.  Agregar registros: DUI, nombre, departamento, municipio, fecha de nacimiento, entre otros
-> 2.  Eliminar un registro
-> 3.  Buscar por número de DUI (Mostrar la información del usuario)
+    Crear un programa que simule el sistema de consultas de un padrón electoral, 
+    que cuente como máximo con 5 registros por cada departamento de El Salvador, 
+    finalmente el programa debe implementar lo siguiente:
+   
+    1.  Agregar registros: DUI, nombre, departamento, municipio, fecha de nacimiento, entre otros
+    2.  Eliminar un registro
+    3.  Buscar por número de DUI (Mostrar la información del usuario)
 
 ## Proyecto 5
 
-    Crear un programa que simule un censo, que permita realizar consultas por cada departamento de El Salvador, por número de DUI, finalmente el programa debe implementar lo siguiente:
+    Crear un programa que simule un censo, que permita realizar consultas por cada departamento de El Salvador, por número de DUI.
+    Finalmente el programa debe implementar lo siguiente:
+
     1.  Agregar registros: departamento, municipio, DUI, nombre, fecha de nacimiento, sexo, entre otros
     2.  Eliminar un registro
     3.  Buscar por departamento (Mostrar número de habitantes total, número de mujeres, hombre, niños y niñas)
 
 ## Proyecto 6
 
-> Crear un programa que genere los diferentes partidos (selecciona el deporte de preferencia) para un campeonato de América, tomando en cuenta que cada país tiene un equipo. El usuario podrá realizar las siguientes acciones:
->
-> 1.  Agregar registros: nombre del equipo, numero de puntos, país, entre otros
-> 2.  Eliminar los equipos
-> 3.  Buscar un equipo en especifico (Mostrar la información del equipo)
-> 4.  Mostrar la tabla de partidos.
+    Crear un programa que genere los diferentes partidos (selecciona el deporte de preferencia) para un campeonato de América, 
+    tomando en cuenta que cada país tiene un equipo. El usuario podrá realizar las siguientes acciones:
+
+    1.  Agregar registros: nombre del equipo, numero de puntos, país, entre otros
+    2.  Eliminar los equipos
+    3.  Buscar un equipo en especifico (Mostrar la información del equipo)
+    4.  Mostrar la tabla de partidos.
 
 ### Investigación
 
