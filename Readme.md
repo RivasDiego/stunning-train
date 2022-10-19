@@ -10,8 +10,8 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 
 > Cada equipo debe seleccionar un proyecto, realizar lo solicitado y agregar una función personalizada (obligatorio).
 
-## [Indicaciones](#indicaciones-generales)
-## [Criterios de evaluación](#criterios)
+### [Indicaciones](#indicaciones-generales)
+### [Criterios de evaluación](#criterios)
 
 ## Listado de proyectos
 * [Proyecto Número 1](#proyecto-1)
