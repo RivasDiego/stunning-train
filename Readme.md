@@ -1,4 +1,4 @@
-<a href="#">
+<a id="top" href="#">
     <h1 align="center">
         <img style="border-radius: 15px;" src="https://i.imgur.com/uekVX44.jpg">
     </h1>
@@ -70,11 +70,10 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 
 ## Proyecto 5
 
-> Crear un programa que simule un censo, que permita realizar consultas por cada departamento de El Salvador, por número de DUI, finalmente el programa debe implementar lo siguiente:
->
-> 1.  Agregar registros: departamento, municipio, DUI, nombre, fecha de nacimiento, sexo, entre otros
-> 2.  Eliminar un registro
-> 3.  Buscar por departamento (Mostrar número de habitantes total, número de mujeres, hombre, niños y niñas)
+    Crear un programa que simule un censo, que permita realizar consultas por cada departamento de El Salvador, por número de DUI, finalmente el programa debe implementar lo siguiente:
+    1.  Agregar registros: departamento, municipio, DUI, nombre, fecha de nacimiento, sexo, entre otros
+    2.  Eliminar un registro
+    3.  Buscar por departamento (Mostrar número de habitantes total, número de mujeres, hombre, niños y niñas)
 
 ## Proyecto 6
 
@@ -120,4 +119,4 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 
 > __*Nota será diferenciada para cada miembro del equipo*__.
 
-### [Proyecto Número 1](#listado-de-proyectos)
+### [Volver al inicio](#top)
