@@ -92,7 +92,7 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 
 ### Investigación
 
-> El uso de ficheros en C++, el cual permitirá almacenar los datos del programa.
+> **El uso de ficheros en C++, el cual permitirá almacenar los datos del programa.**
 
 ## Indicaciones generales
 
