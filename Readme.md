@@ -1,6 +1,6 @@
 <a href="#">
     <h1 align="center">
-        <img border-radius="15px" src="https://i.imgur.com/uekVX44.jpg">
+        <img style="border-radius: 15px;" src="https://i.imgur.com/uekVX44.jpg">
     </h1>
 </a>
 
@@ -119,3 +119,5 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 - Uso de Git (ramas, commit, versión final proyecto main) - 15%
 
 > __*Nota será diferenciada para cada miembro del equipo*__.
+
+### [Proyecto Número 1](#listado-de-proyectos)
