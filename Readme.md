@@ -1,6 +1,6 @@
 <a href="#">
     <h1 align="center">
-        <img style="border-radius: 15px;" src="https://i.imgur.com/uekVX44.jpg">
+        <img border-radius="15px" src="https://i.imgur.com/uekVX44.jpg">
     </h1>
 </a>
 
@@ -10,7 +10,7 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 
 > Cada equipo debe seleccionar un proyecto, realizar lo solicitado y agregar una función personalizada (obligatorio).
 
-## [Indicaciones Generales](#indicaciones-generales)
+## [Indicaciones](#indicaciones-generales)
 ## [Criterios de evaluación](#criterios)
 
 ## Listado de proyectos
