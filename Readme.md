@@ -117,11 +117,14 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 
 ## Criterios
 
-- Defensa individual - 25%
-- Implementación de estructuras dinámicas (uso de punteros, manejo correcto de struct, manejo correcto de estructuras dinámicas) - 20%
-- Funcionamiento correcto según los requerimientos del problema (muestra el resultado esperado, se ejecuta sin errores) - 30%
-- Buenas prácticas (Indentación del código, comentarios, nombres y funciones descriptivos) - 10%
-- Uso de Git (ramas, commit, versión final proyecto main) - 15%
+
+| Descripción                                                                                                                       | Porcentaje  |
+| ---                                                                                                                                |    :---:    |
+| Defensa individual                                                                                                                |     25%     | 
+| Implementación de estructuras dinámicas (uso de punteros, manejo correcto de struct, manejo correcto de estructuras dinámicas)    |     20%     | 
+| Funcionamiento correcto según los requerimientos del problema (muestra el resultado esperado, se ejecuta sin errores)             |     30%     | 
+| Buenas prácticas (Indentación del código, comentarios, nombres y funciones descriptivos)                                          |     10%     | 
+| Uso de Git (ramas, commit, versión final proyecto main)                                                                           |     15%     |
 
 > __*Nota será diferenciada para cada miembro del equipo*__.
 
