@@ -25,22 +25,26 @@ int main()
     AddAtStart(p_word4, &dictionary);
     AddAtEnd(p_word5, &dictionary);
 
-    
+    // PrintList(&dictionary);
 
     RemoveAtStart(&dictionary);
     RemoveAtStart(&dictionary);
     RemoveAtEnd(&dictionary);
     RemoveAtEnd(&dictionary);
 
-    
+    // PrintList(&dictionary);
 
     AddAtEnd(p_word6, &dictionary);
     AddAtEnd(p_word7, &dictionary);
-    AddBefore(p_word8, &dictionary,"uno");
+    AddBefore(p_word8, &dictionary,"seis");
     AddAfter(p_word9, &dictionary,"siEtE");
 
+    // PrintList(&dictionary);
     PrintList(&dictionary);
-    PrintWord(GetWord(&dictionary, "UNO"));
 
+    RemoveWord(&dictionary, "seis");
+
+    PrintList(&dictionary);
+    
     return 0;
 }

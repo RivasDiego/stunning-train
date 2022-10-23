@@ -15,6 +15,7 @@ void AddAtStart(T data, Node **list)
     p__node->next = *list;
     *list = p__node;
 }
+
 void AddAtEnd(T data, Node **list)
 {
     Node *p__node = CreateNode(data);
@@ -35,6 +36,7 @@ void AddAtEnd(T data, Node **list)
         temp_pointer2->next = p__node;
     }
 }
+
 void AddBefore(T data, Node **list, string word)
 {
     Node *p__node = CreateNode(data);
@@ -45,6 +47,9 @@ void AddBefore(T data, Node **list, string word)
     {
         Node *temp_pointer1 = findNode(list, word);
         Node *temp_pointer2 = findNodeBefore(list, word);
+
+        if (temp_pointer1 == NULL)
+            return;
 
         if (temp_pointer2 == NULL)
         {
@@ -58,6 +63,7 @@ void AddBefore(T data, Node **list, string word)
         }
     }
 }
+
 void AddAfter(T data, Node **list, string word)
 {
     Node *p__node = CreateNode(data);
@@ -69,6 +75,9 @@ void AddAfter(T data, Node **list, string word)
         Node *temp_pointer1 = findNode(list, word);
         Node *temp_pointer2 = findNodeBefore(list, word);
 
+        if (temp_pointer1 == NULL)
+            return;
+
         temp_pointer2 = temp_pointer1;
         temp_pointer1 = temp_pointer1->next;
 
@@ -76,6 +85,7 @@ void AddAfter(T data, Node **list, string word)
         temp_pointer2->next = p__node;
     }
 }
+
 void RemoveAtStart(Node **list)
 {
     if (IsEmpty(list))
@@ -84,6 +94,7 @@ void RemoveAtStart(Node **list)
         *list = (*list)->next;
     return;
 }
+
 void RemoveAtEnd(Node **list)
 {
     if (IsEmpty(list))
@@ -102,9 +113,17 @@ void RemoveAtEnd(Node **list)
         temp_pointer2->next = NULL;
     }
 }
+
 void RemoveWord(Node **list, string word)
 {
-    Node *temp_pointer = findNode(list, word);
+    Node *temp_pointer1 = findNode(list, word);
+    Node *temp_pointer2 = findNodeBefore(list,word);
+
+    if (temp_pointer1 == NULL)
+        return;
+    
+    (temp_pointer2)->next = (temp_pointer1)->next;
+    temp_pointer1->next = NULL;
 }
 
 Node *CreateNode(T element)
@@ -114,10 +133,12 @@ Node *CreateNode(T element)
     p__node->next = NULL;
     return p__node;
 }
+
 bool IsEmpty(Node **list)
 {
     return *list == NULL;
 }
+
 void PrintList(Node **list)
 {
     if (*list == NULL)
@@ -129,7 +150,7 @@ void PrintList(Node **list)
     Node *temp_pointer = new Node();
     temp_pointer = *list;
 
-    cout << "\n--------------------------------------------";
+    cout << "\n------------INICIO DE IMPRESION-------------";
     PrintWord(temp_pointer->element);
 
     while (temp_pointer->next != NULL)
@@ -137,10 +158,12 @@ void PrintList(Node **list)
         temp_pointer = temp_pointer->next;
         PrintWord(temp_pointer->element);
     };
-    cout << "\n--------------------------------------------";
+    cout << "\n-------------FIN DE IMPRESION---------------";
     return;
 }
+
 void EnoughSpace(T data, Node **list); // TODO Implement EnoughSpace function;
+
 Node *findNode(Node **list, string word)
 {
     Node *temp_pointer = *list;
@@ -156,7 +179,6 @@ Node *findNode(Node **list, string word)
         temp_pointer = temp_pointer->next;
         if (temp_pointer == NULL)
         {
-            cout << "No se pudo encontrar el registro...";
             return NULL;
         }
         searchWordToUpper = temp_pointer->element.word;
@@ -165,6 +187,7 @@ Node *findNode(Node **list, string word)
 
     return temp_pointer;
 }
+
 Node *findNodeBefore(Node **list, string word)
 {
     Node *temp_pointer1 = *list;
@@ -181,7 +204,6 @@ Node *findNodeBefore(Node **list, string word)
         temp_pointer1 = temp_pointer1->next;
         if (temp_pointer1 == NULL)
         {
-            cout << "No se pudo encontrar el registro...";
             return NULL;
         }
         searchWordToUpper = temp_pointer1->element.word;
@@ -223,6 +245,7 @@ Word GetFirstWord(Node **list)
 {
     return (*list)->element;
 }
+
 Word GetLastWord(Node **list)
 {
     Node *temp_pointer = new Node();
@@ -238,27 +261,11 @@ Word GetLastWord(Node **list)
 
 Word GetWord(Node **list, string word)
 {
-    Node *temp_pointer = *list;
-
-    string wordToUpper = word;
-    string searchWordToUpper = temp_pointer->element.word;
-
-    transform(word.begin(), word.end(), wordToUpper.begin(), ::toupper);
-    transform(temp_pointer->element.word.begin(), temp_pointer->element.word.end(), searchWordToUpper.begin(), ::toupper);
-
-    while (searchWordToUpper != wordToUpper)
-    {
-        temp_pointer = temp_pointer->next;
-        if (temp_pointer == NULL)
-        {
-            cout << "No se pudo encontrar el registro...";
-            return invalidData;
-        }
-        searchWordToUpper = temp_pointer->element.word;
-        transform(temp_pointer->element.word.begin(), temp_pointer->element.word.end(), searchWordToUpper.begin(), ::toupper);
-    };
-
-    return (temp_pointer)->element;
+    Node *temp_pointer = findNode(list, word);
+    if (temp_pointer == NULL)
+        return invalidData;
+    else
+        return (temp_pointer)->element;
 }
 
 void PrintWord(Word word)
