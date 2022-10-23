@@ -18,4 +18,5 @@ Word GetFirst(Node** list);
 Word GetLast(Node** list);
 Word GetWordInfo(Node** list);
 
-string DateTimeStamp ();
+// TODO Save to external files at the end of the execution
+// TODO Read info and parse it to a list at program start

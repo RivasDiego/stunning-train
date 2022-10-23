@@ -6,39 +6,12 @@
 //     3.  Buscar palabras en específico
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "lib/functions.hpp"
 
 using namespace std;
 
-void WriteTimeToFile(string time);
-void ReadTimeOfFile();
-
 int main()
 {
-    string CurrentTime = DateTimeStamp();
-    cout << "Hello world!\n" << "This message was sent " << CurrentTime;
-
-    WriteTimeToFile(CurrentTime);
-    ReadTimeOfFile();
-
     return 0;
-}
-
-
-void WriteTimeToFile(string time)
-{
-    ofstream data_file ("res/data_file.txt", ios::app);
-    data_file << time;
-    data_file.close();
-}
-void ReadTimeOfFile()
-{
-    ifstream data_file ("res/data_file.txt");
-    string time,time2,time3,time4,time5;
-    while (data_file >> time >> time2 >> time3 >> time4 >> time5)
-    {
-        cout << time << " " << time2 << " " << time3 << " " << time4 << " " << time5 << " " << "\n";
-    }
-    
-    return;
 }

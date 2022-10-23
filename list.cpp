@@ -1,7 +1,7 @@
-#include "lib/structs.hpp"
+#include "lib/functions.hpp"
 #include <iostream>
 #include <fstream>
-#include <ctime>
+#include <string>
 
 using namespace std;
 
@@ -21,11 +21,3 @@ void _init_();
 Word GetFirst(Node** list);
 Word GetLast(Node** list);
 Word GetWordInfo(Node** list);
-
-string DateTimeStamp ()
-{
-    time_t BinaryTime = time(NULL);
-    string current = ctime(&BinaryTime);
-
-    return current;
-}
