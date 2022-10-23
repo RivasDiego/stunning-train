@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
 #include "lib/functions.hpp"
 
 using namespace std;
@@ -18,10 +19,8 @@ void AddAtEnd(T data, Node **list)
 {
     Node *p__node = CreateNode(data);
 
-    if (*list == NULL)
-    {
+    if (IsEmpty(list))
         *list = p__node;
-    }
     else
     {
         Node *temp_pointer1 = *list;
@@ -36,9 +35,87 @@ void AddAtEnd(T data, Node **list)
         temp_pointer2->next = p__node;
     }
 }
-void AddAfter(T data, Node **list, string word);  // TODO Implement AddAfter function
-void AddBefore(T data, Node **list, string word); // TODO Implement AddBefore function
+void AddBefore(T data, Node **list, string word)
+{
+    Node *p__node = CreateNode(data);
 
+    string wordToUpper = word;
+    string searchWordToUpper = "";
+    transform(word.begin(), word.end(), wordToUpper.begin(), ::toupper);
+
+    if (IsEmpty(list))
+        *list = p__node;
+    else
+    {
+        Node *temp_pointer1 = *list;
+        Node *temp_pointer2 = NULL;
+
+        searchWordToUpper = temp_pointer1->element.word;
+        transform(temp_pointer1->element.word.begin(), temp_pointer1->element.word.end(), searchWordToUpper.begin(), ::toupper);
+
+        while (searchWordToUpper != wordToUpper)
+        {
+            temp_pointer2 = temp_pointer1;
+            temp_pointer1 = temp_pointer1->next;
+            if (temp_pointer1 == NULL)
+            {
+                cout << "-No lo encontre we.- ";
+                return;
+            }
+            searchWordToUpper = temp_pointer1->element.word;
+            transform(temp_pointer1->element.word.begin(), temp_pointer1->element.word.end(), searchWordToUpper.begin(), ::toupper);
+        };
+
+        if (temp_pointer2 == NULL)
+        {
+            p__node->next = *list;
+            *list = p__node;
+        }
+        else
+        {
+            p__node->next = temp_pointer1;
+            temp_pointer2->next = p__node;
+        }
+    }
+}
+void AddAfter(T data, Node **list, string word)
+{
+    Node *p__node = CreateNode(data);
+
+    string wordToUpper = word;
+    string searchWordToUpper = "";
+    transform(word.begin(), word.end(), wordToUpper.begin(), ::toupper);
+
+    if (IsEmpty(list))
+        *list = p__node;
+    else
+    {
+        Node *temp_pointer1 = *list;
+        Node *temp_pointer2 = NULL;
+
+        searchWordToUpper = temp_pointer1->element.word;
+        transform(temp_pointer1->element.word.begin(), temp_pointer1->element.word.end(), searchWordToUpper.begin(), ::toupper);
+
+        while (searchWordToUpper != wordToUpper)
+        {
+            temp_pointer2 = temp_pointer1;
+            temp_pointer1 = temp_pointer1->next;
+            if (temp_pointer1 == NULL)
+            {
+                cout << "-No lo encontre we.- ";
+                return;
+            }
+            searchWordToUpper = temp_pointer1->element.word;
+            transform(temp_pointer1->element.word.begin(), temp_pointer1->element.word.end(), searchWordToUpper.begin(), ::toupper);
+        };
+
+        temp_pointer2 = temp_pointer1;
+        temp_pointer1 = temp_pointer1->next;
+
+        p__node->next = temp_pointer1;
+        temp_pointer2->next = p__node;
+    }
+}
 void RemoveAtStart(Node **list)
 {
     if (IsEmpty(list))
