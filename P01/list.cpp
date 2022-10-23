@@ -142,8 +142,6 @@ void RemoveAtEnd(Node **list)
         temp_pointer2->next = NULL;
     }
 }
-void RemoveAfter(Node **list, string word);  // TODO Implement RemoveAfter function
-void RemoveBefore(Node **list, string word); // TODO Implement RemoveBefore function
 void RemoveWord(Node **list, string word);   // TODO Implement RemoveWord function
 
 Node *CreateNode(T element)

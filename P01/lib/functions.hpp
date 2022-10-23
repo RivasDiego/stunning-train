@@ -10,8 +10,6 @@ void AddBefore(T data, Node **list, string word); // TODO Add documentation to f
 
 void RemoveAtStart(Node **list);             // TODO Add documentation to function
 void RemoveAtEnd(Node **list);               // TODO Add documentation to function
-void RemoveAfter(Node **list, string word);  // TODO Add documentation to function
-void RemoveBefore(Node **list, string word); // TODO Add documentation to function
 void RemoveWord(Node **list, string word);   // TODO Add documentation to function
 
 Node *CreateNode(Word element);        // TODO Add documentation to function
