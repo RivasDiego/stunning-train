@@ -19,3 +19,5 @@ struct node
 };
 
 typedef struct node Node;
+
+const Word invalidData = {"INVALID DATA","INVALID DATA","INVALID DATA","INVALID DATA"};
