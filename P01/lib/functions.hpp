@@ -3,34 +3,32 @@ using namespace std;
 
 // List functions
 
-void AddAtStart (T data, Node **list);
-void AddAtEnd (T data, Node **list);
-void AddAfter (T data, Node **list, string word);
-void AddBefore (T data, Node **list, string word);
+void AddAtStart(T data, Node **list);             // TODO Add documentation to function
+void AddAtEnd(T data, Node **list);               // TODO Add documentation to function
+void AddAfter(T data, Node **list, string word);  // TODO Add documentation to function
+void AddBefore(T data, Node **list, string word); // TODO Add documentation to function
 
-void RemoveAtStart (Node** list);
-void RemoveAtEnd (Node** list);
-void RemoveAfter (Node** list, string word);
-void RemoveBefore (Node** list, string word);
-void RemoveWord (Node** list, string word);
+void RemoveAtStart(Node **list);             // TODO Add documentation to function
+void RemoveAtEnd(Node **list);               // TODO Add documentation to function
+void RemoveAfter(Node **list, string word);  // TODO Add documentation to function
+void RemoveBefore(Node **list, string word); // TODO Add documentation to function
+void RemoveWord(Node **list, string word);   // TODO Add documentation to function
 
-
-Node* CreateNode(Word element);
-void _init_();
-bool IsEmpty(Node **list);
-void PrintList(Node **list);
-void EnoughSpace(T data, Node **list);
+Node *CreateNode(Word element);        // TODO Add documentation to function
+bool IsEmpty(Node **list);             // TODO Add documentation to function
+void PrintList(Node **list);           // TODO Add documentation to function
+void EnoughSpace(T data, Node **list); // TODO Add documentation to function
 
 // File Stream Functions
 
-void SaveToFile();
-void ReadFile();
+void SaveToFile(); // TODO Add documentation to function
+void ReadFile();   // TODO Add documentation to function
 
 // Word Functions
 
-Word CreateWord();
-Word GetFirst(Node** list);
-Word GetLast(Node** list);
-Word GetWordInfo(Node** list);
-void PrintWord(string word);
-void PrintWord(Word word);
+Word CreateWord();             // TODO Add documentation to function
+Word GetFirst(Node **list);    // TODO Add documentation to function
+Word GetLast(Node **list);     // TODO Add documentation to function
+Word GetWordInfo(Node **list); // TODO Add documentation to function
+void PrintWord(string word);   // TODO Add documentation to function
+void PrintWord(Word word);     // TODO Add documentation to function

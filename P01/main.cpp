@@ -14,8 +14,19 @@ int main()
     Word p_word4 = {"4","","",""};
     Word p_word5 = {"5","","",""};
 
+    AddAtEnd(p_word1, &dictionary);
+    AddAtStart(p_word2, &dictionary);
+    AddAtEnd(p_word3, &dictionary);
+    AddAtStart(p_word4, &dictionary);
+    AddAtEnd(p_word5, &dictionary);
 
     PrintList(&dictionary);
 
+    RemoveAtStart(&dictionary);
+    RemoveAtStart(&dictionary);
+    RemoveAtEnd(&dictionary);
+    RemoveAtEnd(&dictionary);
+
+    PrintList(&dictionary);
     return 0;
 }
