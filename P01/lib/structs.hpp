@@ -15,9 +15,9 @@ typedef Word T;
 struct node
 {
     T element;
-    struct node* next;
+    struct node *next;
 };
 
 typedef struct node Node;
 
-const Word invalidData = {"INVALID DATA","INVALID DATA","INVALID DATA","INVALID DATA"};
+const Word invalidData = {"INVALID_DATA", "INVALID_DATA", "INVALID_DATA", "INVALID_DATA"};

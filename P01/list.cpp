@@ -117,11 +117,11 @@ void RemoveAtEnd(Node **list)
 void RemoveWord(Node **list, string word)
 {
     Node *temp_pointer1 = findNode(list, word);
-    Node *temp_pointer2 = findNodeBefore(list,word);
+    Node *temp_pointer2 = findNodeBefore(list, word);
 
     if (temp_pointer1 == NULL)
         return;
-    
+
     (temp_pointer2)->next = (temp_pointer1)->next;
     temp_pointer1->next = NULL;
 }
@@ -215,8 +215,90 @@ Node *findNodeBefore(Node **list, string word)
 
 // File Stream Functions
 
-void SaveToFile(); // TODO Implement SaveToFile function
-void ReadFile();   // TODO Implement ReadFile function
+void SaveToFiles()
+{
+    /*     void WriteTimeToFile(string time)
+    {
+        ofstream data_file ("res/data_file.txt", ios::app);
+        data_file << time;
+        data_file.close();
+    }
+    void ReadTimeOfFile()
+    {
+        ifstream data_file ("res/data_file.txt");
+        string time,time2,time3,time4,time5;
+        while (data_file >> time >> time2 >> time3 >> time4 >> time5)
+        {
+            cout << time << " " << time2 << " " << time3 << " " << time4 << " " << time5 << " " << "\n";
+        }
+
+        return;
+    } */
+} // TODO Implement SaveToFile function
+Node *ReadFiles()
+{
+    Node *p__list = NULL;
+
+    fstream words_dataFile("res/words_dataFile.txt", ios::out | ios::app);
+    words_dataFile.close();
+    words_dataFile.open("res/words_dataFile.txt", ios::in);
+
+    fstream defs_dataFile("res/defs_dataFile.txt", ios::out | ios::app);
+    defs_dataFile.close();
+    defs_dataFile.open("res/defs_dataFile.txt", ios::in);
+
+    fstream syns_dataFile("res/syns_dataFile.txt", ios::out | ios::app);
+    syns_dataFile.close();
+    syns_dataFile.open("res/syns_dataFile.txt", ios::in);
+
+    fstream ants_dataFile("res/ants_dataFile.txt", ios::out | ios::app);
+    ants_dataFile.close();
+    ants_dataFile.open("res/ants_dataFile.txt", ios::in);
+
+    string temp_string = "";
+    Word p__word = invalidData;
+
+    getline(words_dataFile, temp_string);
+    p__word.word = temp_string;
+
+    getline(defs_dataFile, temp_string);
+    p__word.def = temp_string;
+
+    getline(syns_dataFile, temp_string);
+    p__word.synonyms = temp_string;
+
+    getline(ants_dataFile, temp_string);
+    p__word.antonyms = temp_string;
+
+    AddAtEnd(p__word, &p__list);
+    
+    while (!words_dataFile.eof())
+    {
+        p__word = invalidData;
+        temp_string = "";
+
+        getline(words_dataFile, temp_string);
+        p__word.word = temp_string;
+
+        getline(defs_dataFile, temp_string);
+        p__word.def = temp_string;
+
+        getline(syns_dataFile, temp_string);
+        p__word.synonyms = temp_string;
+
+        getline(ants_dataFile, temp_string);
+        p__word.antonyms = temp_string;
+        
+        AddAtEnd(p__word, &p__list);
+    }
+
+    if (p__word.word == "INVALID_DATA")
+        return p__list = NULL;
+    
+    return p__list;
+    
+    
+}
 
 // Word Functions
 
@@ -270,7 +352,7 @@ Word GetWord(Node **list, string word)
 
 void PrintWord(Word word)
 {
-    if (word.def == "INVALID DATA")
+    if (word.def == "INVALID_DATA")
     {
         cout << "\nERROR!\n\tNo se puede imprimir el registro...";
         return;
@@ -281,5 +363,12 @@ void PrintWord(Word word)
     cout << "\nSinonimos: " << word.synonyms;
     cout << "\nAntonimos: " << word.antonyms;
     cout << "\n--------------------------------------------";
+    return;
+}
+
+void PrintWord(string word, Node **list)
+{
+    Node *temp_pointer = findNode(list, word);
+    PrintWord(temp_pointer->element);
     return;
 }

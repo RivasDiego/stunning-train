@@ -12,23 +12,22 @@ void RemoveAtStart(Node **list);           // TODO Add documentation to function
 void RemoveAtEnd(Node **list);             // TODO Add documentation to function
 void RemoveWord(Node **list, string word); // TODO Add documentation to function
 
-Node *CreateNode(Word element);           // TODO Add documentation to function
-bool IsEmpty(Node **list);                // TODO Add documentation to function
-void PrintList(Node **list);              // TODO Add documentation to function
-void EnoughSpace(T data, Node **list);    // TODO Add documentation to function
-Node *findNode(Node **list, string word); // TODO Add documentation to function
+Node *CreateNode(Word element);                 // TODO Add documentation to function
+bool IsEmpty(Node **list);                      // TODO Add documentation to function
+void PrintList(Node **list);                    // TODO Add documentation to function
+void EnoughSpace(T data, Node **list);          // TODO Add documentation to function
+Node *findNode(Node **list, string word);       // TODO Add documentation to function
 Node *findNodeBefore(Node **list, string word); // TODO Add documentation to function
 
 // File Stream Functions
 
-void SaveToFile(); // TODO Add documentation to function
-void ReadFile();   // TODO Add documentation to function
-
+void SaveToFiles(); // TODO Add documentation to function
+Node* ReadFiles();   // TODO Add documentation to function
 // Word Functions
 
-Word CreateWord();                      // TODO Add documentation to function
-Word GetFirstWord(Node **list);         // TODO Add documentation to function
-Word GetLastWord(Node **list);          // TODO Add documentation to function
-Word GetWord(Node **list, string word); // TODO Add documentation to function
-void PrintWord(string word);            // TODO Add documentation to function
-void PrintWord(Word word);              // TODO Add documentation to function
+Word CreateWord();                        // TODO Add documentation to function
+Word GetFirstWord(Node **list);           // TODO Add documentation to function
+Word GetLastWord(Node **list);            // TODO Add documentation to function
+Word GetWord(Node **list, string word);   // TODO Add documentation to function
+void PrintWord(string word, Node **list); // TODO Add documentation to function
+void PrintWord(Word word);                // TODO Add documentation to function
