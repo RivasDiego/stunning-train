@@ -14,6 +14,8 @@ void AddAtStart(T data, Node **list)
 
     p__node->next = *list;
     *list = p__node;
+    cout << "La operacion se ejecuto exitosamente\n";
+    return;
 }
 
 void AddAtEnd(T data, Node **list)
@@ -35,6 +37,7 @@ void AddAtEnd(T data, Node **list)
 
         temp_pointer2->next = p__node;
     }
+    return;
 }
 
 void AddBefore(T data, Node **list, string word)
@@ -49,7 +52,10 @@ void AddBefore(T data, Node **list, string word)
         Node *temp_pointer2 = findNodeBefore(list, word);
 
         if (temp_pointer1 == NULL)
+        {
+            cout << "\n\t\t***ERROR***\nNo se encontro el registro...\n";
             return;
+        }
 
         if (temp_pointer2 == NULL)
         {
@@ -62,6 +68,8 @@ void AddBefore(T data, Node **list, string word)
             temp_pointer2->next = p__node;
         }
     }
+    cout << "La operacion se ejecuto exitosamente\n";
+    return;
 }
 
 void AddAfter(T data, Node **list, string word)
@@ -75,8 +83,10 @@ void AddAfter(T data, Node **list, string word)
         Node *temp_pointer1 = findNode(list, word);
         Node *temp_pointer2 = findNodeBefore(list, word);
 
-        if (temp_pointer1 == NULL)
+        if (temp_pointer1 == NULL){
+            cout << "\n\t\t***ERROR***\nNo se encontro el registro...\n";
             return;
+        }
 
         temp_pointer2 = temp_pointer1;
         temp_pointer1 = temp_pointer1->next;
@@ -84,6 +94,8 @@ void AddAfter(T data, Node **list, string word)
         p__node->next = temp_pointer1;
         temp_pointer2->next = p__node;
     }
+    cout << "La operacion se ejecuto exitosamente\n";
+    return;
 }
 
 void RemoveAtStart(Node **list)
@@ -92,6 +104,8 @@ void RemoveAtStart(Node **list)
         *list = NULL;
     else
         *list = (*list)->next;
+    
+    cout << "La operacion se ejecuto exitosamente\n";
     return;
 }
 
@@ -112,6 +126,8 @@ void RemoveAtEnd(Node **list)
 
         temp_pointer2->next = NULL;
     }
+    cout << "La operacion se ejecuto exitosamente\n";
+    return;
 }
 
 void RemoveWord(Node **list, string word)
@@ -119,11 +135,25 @@ void RemoveWord(Node **list, string word)
     Node *temp_pointer1 = findNode(list, word);
     Node *temp_pointer2 = findNodeBefore(list, word);
 
-    if (temp_pointer1 == NULL)
+    if (temp_pointer1 == NULL){
+        cout << "\n\t\t***ERROR***\nNo se encontro el registro...\n";
         return;
+    }
 
-    (temp_pointer2)->next = (temp_pointer1)->next;
-    temp_pointer1->next = NULL;
+    if(temp_pointer2 != NULL)
+    {
+        (temp_pointer2)->next = (temp_pointer1)->next;
+        temp_pointer1->next = NULL;
+        cout << "La operacion se ejecuto exitosamente\n";
+        return;
+    }else{
+        *list = temp_pointer1->next;
+        cout << "La operacion se ejecuto exitosamente\n";
+        return;
+    }
+    
+    return;
+
 }
 
 Node *CreateNode(T element)

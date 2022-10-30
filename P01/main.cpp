@@ -83,10 +83,12 @@ void AddElements(Node **list)
         case 2:
             AddAtEnd(CreateWord(), list);
             show_menu = true;
+            cout << "La operacion se ejecuto exitosamente\n";
             break;
         case 3:
             cout << "Ingresa la palabra: ";
             cin >> ui_word;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             AddBefore(CreateWord(), list, ui_word);
             ui_word = "";
             show_menu = true;
@@ -94,6 +96,7 @@ void AddElements(Node **list)
         case 4:
             cout << "Ingresa la palabra: ";
             cin >> ui_word;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             AddAfter(CreateWord(), list, ui_word);
             ui_word = "";
             show_menu = true;
