@@ -7,13 +7,19 @@
 Word CreateWord()
 {
     Word p__word;
-    cout << "Ingresa la palabra que quieres agregar: ";
+    cout << "Ingrese la palabra que quiere agregar: ";
     getline(cin, p__word.word);
-    cout << "Ingresa su definicion: ";
+    cout << "Ingrese su definicion: ";
     getline(cin, p__word.def);
-    cout << "Escribe separado por comas si tiene sinonimos (Presiona 'Enter' si no tiene): ";
+    while (p__word.def == "")
+    {
+        cout << "La definicion no puede estar vacia!\nPor favor, intente de nuevo: ";
+        getline(cin, p__word.def);
+    }
+
+    cout << "Escriba separado por comas si tiene sinonimos (Presiona 'Enter' si no tiene): ";
     getline(cin, p__word.synonyms);
-    cout << "Escribe separado por comas si tiene antonimos (Presiona 'Enter' si no tiene): ";
+    cout << "Escriba separado por comas si tiene antonimos (Presiona 'Enter' si no tiene): ";
     getline(cin, p__word.antonyms);
 
     if (p__word.antonyms == "")
@@ -35,8 +41,7 @@ Word GetLastWord(Node **list)
     Node *temp_pointer = new Node();
 
     temp_pointer = *list;
-    while (temp_pointer->next != NULL)
-    {
+    while (temp_pointer->next != NULL){
         temp_pointer = temp_pointer->next;
     };
 
@@ -54,9 +59,8 @@ Word GetWord(Node **list, string word)
 
 void PrintWord(Word word)
 {
-    if (word.def == "INVALID_DATA")
-    {
-        cout << "\nERROR!\n\tNo se puede imprimir el registro...";
+    if (word.def == "INVALID_DATA"){
+        cout << "\n\t\t***ERROR***\nNo se puede imprimir el registro...\n";
         return;
     }
     cout << "\n--------------------------------------------";
@@ -71,6 +75,10 @@ void PrintWord(Word word)
 void PrintWord(string word, Node **list)
 {
     Node *temp_pointer = findNode(list, word);
+    if (temp_pointer == NULL){
+        cout << "\n\t\t***ERROR***\nNo se puede imprimir el registro...\n";
+        return;
+    }
     PrintWord(temp_pointer->element);
     return;
 }

@@ -141,9 +141,9 @@ bool IsEmpty(Node **list)
 
 void PrintList(Node **list)
 {
-    if (*list == NULL)
+    if (IsEmpty(list))
     {
-        cout << "\nLista vacia...";
+        cout << "\nLa lista de registros esta vacia...\n";
         return;
     }
 
@@ -167,6 +167,9 @@ bool EnoughSpace(T data, Node **list); // TODO Implement EnoughSpace function;
 Node *findNode(Node **list, string word)
 {
     Node *temp_pointer = *list;
+
+    if (IsEmpty(list))
+        return NULL;
 
     string wordToUpper = word;
     string searchWordToUpper = temp_pointer->element.word;
@@ -192,6 +195,9 @@ Node *findNodeBefore(Node **list, string word)
 {
     Node *temp_pointer1 = *list;
     Node *temp_pointer2 = NULL;
+
+    if (IsEmpty(list))
+        return NULL;
 
     string wordToUpper = word;
     string searchWordToUpper = temp_pointer1->element.word;

@@ -21,8 +21,8 @@ Node *findNodeBefore(Node **list, string word); // TODO Add documentation to fun
 
 // File Stream Functions
 
-void SaveToFiles(); // TODO Add documentation to function
-Node *ReadFiles();  // TODO Add documentation to function
+void SaveToFiles(Node **list); // TODO Add documentation to function
+Node *ReadFiles();             // TODO Add documentation to function
 
 // Word Functions
 

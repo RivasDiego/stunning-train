@@ -4,7 +4,7 @@
 #include <algorithm>
 #include "lib/functions.hpp"
 
-void SaveToFiles()
+void SaveToFiles(Node** list)
 {
     /*     void WriteTimeToFile(string time)
         {
