@@ -4,44 +4,16 @@
 #include <algorithm>
 #include "lib/functions.hpp"
 
-void SaveToFiles(Node **list)
+void SaveToFiles(Node** list)
 {
-    ClearFiles();
-
-    fstream words_dataFile("res/words_dataFile.txt", ios::out | ios::app);
-    fstream defs_dataFile("res/defs_dataFile.txt", ios::out | ios::app);
-    fstream syns_dataFile("res/syns_dataFile.txt", ios::out | ios::app);
-    fstream ants_dataFile("res/ants_dataFile.txt", ios::out | ios::app);
-
-    if (IsEmpty(list))
-        return;
-
-    Node *temp_pointer = new Node();
-    temp_pointer = *list;
-
-    words_dataFile << "\n"
-                   << temp_pointer->element.word;
-    defs_dataFile << "\n"
-                  << temp_pointer->element.def;
-    syns_dataFile << "\n"
-                  << temp_pointer->element.synonyms;
-    ants_dataFile << "\n"
-                  << temp_pointer->element.antonyms;
-
-    while (temp_pointer->next != NULL)
-    {
-        temp_pointer = temp_pointer->next;
-        words_dataFile << "\n"
-                       << temp_pointer->element.word;
-        defs_dataFile << "\n"
-                      << temp_pointer->element.def;
-        syns_dataFile << "\n"
-                      << temp_pointer->element.synonyms;
-        ants_dataFile << "\n"
-                      << temp_pointer->element.antonyms;
-    };
-    return;
-}
+    /*     void WriteTimeToFile(string time)
+        {
+            ofstream data_file ("res/data_file.txt", ios::app);
+            data_file << time;
+            data_file.close();
+        }
+    */
+} // TODO Implement SaveToFile function
 
 Node *ReadFiles()
 {
@@ -78,8 +50,7 @@ Node *ReadFiles()
     getline(ants_dataFile, temp_string);
     p__word.antonyms = temp_string;
 
-    if (p__word.def != "")
-        AddAtEnd(p__word, &p__list);
+    AddAtEnd(p__word, &p__list);
 
     while (!words_dataFile.eof())
     {
@@ -98,8 +69,7 @@ Node *ReadFiles()
         getline(ants_dataFile, temp_string);
         p__word.antonyms = temp_string;
 
-        if (p__word.def != "")
-            AddAtEnd(p__word, &p__list);
+        AddAtEnd(p__word, &p__list);
     }
 
     if (p__word.word == "INVALID_DATA" || p__word.word == "")
@@ -109,14 +79,4 @@ Node *ReadFiles()
     }
 
     return p__list;
-}
-
-void ClearFiles()
-{
-    remove("res/words_dataFile.txt");
-    remove("res/defs_dataFile.txt");
-    remove("res/syns_dataFile.txt");
-    remove("res/ants_dataFile.txt");
-
-    return;
 }

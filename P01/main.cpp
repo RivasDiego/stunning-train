@@ -124,8 +124,7 @@ void RemoveElements(Node **list)
         cout << "\t1 - Eliminar al principio\n";
         cout << "\t2 - Eliminar al final\n";
         cout << "\t3 - Eliminar alguna palabra\n";
-        cout << "\t4 - Eliminar todos los registros\n";
-        cout << "\t5 - Salir\n";
+        cout << "\t4 - Salir\n";
         cout << "Por favor, ingrese una opcion: ";
         cin >> menu_option;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -147,9 +146,6 @@ void RemoveElements(Node **list)
             show_menu = true;
             break;
         case 4:
-            RemoveAll(list);
-            show_menu = true;
-        case 5:
             show_menu = false;
             break;
         default:
@@ -203,7 +199,7 @@ bool Exit(Node **list)
 
     do
     {
-        cout << "\n*******  PRECAUCION! PUEDE QUE EXISTA INFORMACION SIN GUARDAR!  *******\n\n";
+        cout << "\n*******  PRECAUCION! AUN HAY INFORMACION SIN GUARDAR!  *******\n\n";
         cout << "\t1 - Guardar y salir\n";
         cout << "\t2 - Salir sin guardar\n";
         cout << "\t3 - Cancelar\n";
@@ -211,12 +207,12 @@ bool Exit(Node **list)
         cin >> menu_option;
         switch (menu_option)
         {
-        case 1:
-            SaveToFiles(list);
-            show_menu = false;
-            return false;
         case 2:
             show_menu = false;
+            return false;
+        case 1:
+            show_menu = false;
+            SaveToFiles(list);
             return false;
         case 3:
             show_menu = false;

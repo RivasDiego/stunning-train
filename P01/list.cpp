@@ -156,11 +156,6 @@ void RemoveWord(Node **list, string word)
 
 }
 
-void RemoveAll(Node **list)
-{
-    
-}
-
 Node *CreateNode(T element)
 {
     Node *p__node = new Node;
@@ -193,7 +188,7 @@ void PrintList(Node **list)
         temp_pointer = temp_pointer->next;
         PrintWord(temp_pointer->element);
     };
-    cout << "\n-------------FIN DE IMPRESION---------------\n";
+    cout << "\n-------------FIN DE IMPRESION---------------";
     return;
 }
 
