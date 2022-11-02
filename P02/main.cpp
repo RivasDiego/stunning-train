@@ -62,14 +62,14 @@ void AddElements(Node **list)
 {
     int menu_option;
     bool show_menu = true;
-    string ui_word;
+    string ui_phone_number;
     do
     {
         cout << "\n---- Agregar registros -----\n";
         cout << "\t1 - Agregar registro al principio\n";
         cout << "\t2 - Agregar registro al final\n";
-        cout << "\t3 - Agregar registro antes de alguna palabra\n";
-        cout << "\t4 - Agregar registro despues de alguna palabra\n";
+        cout << "\t3 - Agregar registro antes de algun numero de contacto\n";
+        cout << "\t4 - Agregar registro despues de algun numero de contacto\n";
         cout << "\t5 - Salir\n";
         cout << "Por favor, ingrese una opcion: ";
         cin >> menu_option;
@@ -77,28 +77,28 @@ void AddElements(Node **list)
         switch (menu_option)
         {
         case 1:
-            AddAtStart(CreateWord(), list);
+            AddAtStart(CreateContact(), list);
             show_menu = true;
             break;
         case 2:
-            AddAtEnd(CreateWord(), list);
+            AddAtEnd(CreateContact(), list);
             show_menu = true;
             cout << "La operacion se ejecuto exitosamente\n";
             break;
         case 3:
-            cout << "Ingresa la palabra a buscar: ";
-            cin >> ui_word;
+            cout << "Ingresa el numero de contacto a buscar: ";
+            cin >> ui_phone_number;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            AddBefore(CreateWord(), list, ui_word);
-            ui_word = "";
+            AddBefore(CreateContact(), list, ui_phone_number);
+            ui_phone_number = "";
             show_menu = true;
             break;
         case 4:
-            cout << "Ingresa la palabra a buscar: ";
-            cin >> ui_word;
+            cout << "Ingresa el numero de contacto a buscar: ";
+            cin >> ui_phone_number;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            AddAfter(CreateWord(), list, ui_word);
-            ui_word = "";
+            AddAfter(CreateContact(), list, ui_phone_number);
+            ui_phone_number = "";
             show_menu = true;
             break;
         case 5:
@@ -117,13 +117,13 @@ void RemoveElements(Node **list)
 {
     int menu_option;
     bool show_menu = true;
-    string ui_word;
+    string ui_phone_number;
     do
     {
         cout << "\n---- Eliminar registros -----\n";
         cout << "\t1 - Eliminar registro al principio\n";
         cout << "\t2 - Eliminar registro al final\n";
-        cout << "\t3 - Eliminar registro de alguna palabra\n";
+        cout << "\t3 - Eliminar registro de algun numero de contacto\n";
         cout << "\t4 - Eliminar todos los registros\n";
         cout << "\t5 - Salir\n";
         cout << "Por favor, ingrese una opcion: ";
@@ -140,10 +140,10 @@ void RemoveElements(Node **list)
             show_menu = true;
             break;
         case 3:
-            cout << "Ingresa la palabra a buscar: ";
-            cin >> ui_word;
-            RemoveWord(list, ui_word);
-            ui_word = "";
+            cout << "Ingresa el numero de contacto a buscar: ";
+            cin >> ui_phone_number;
+            RemoveContact(list, ui_phone_number);
+            ui_phone_number = "";
             show_menu = true;
             break;
         case 4:
@@ -164,12 +164,12 @@ void ShowElements(Node **list)
 {
     int menu_option;
     bool show_menu = true;
-    string ui_word;
+    string ui_phone_number;
     do
     {
         cout << "\n---- Mostrar registros -----\n";
         cout << "\t1 - Mostrar todos los registros\n";
-        cout << "\t2 - Mostrar el registro de alguna palabra\n";
+        cout << "\t2 - Mostrar el registro de algun numero de contacto\n";
         cout << "\t3 - Salir\n";
         cout << "Por favor, ingrese una opcion: ";
         cin >> menu_option;
@@ -180,10 +180,10 @@ void ShowElements(Node **list)
             show_menu = true;
             break;
         case 2:
-            cout << "Ingresa la palabra a buscar: ";
-            cin >> ui_word;
-            PrintWord(ui_word, list);
-            ui_word = "";
+            cout << "Ingresa el numero de contacto a buscar: ";
+            cin >> ui_phone_number;
+            PrintContact(ui_phone_number, list);
+            ui_phone_number = "";
             show_menu = true;
             break;
         case 3:
@@ -231,12 +231,18 @@ bool Exit(Node **list)
 }
 void Welcome()
 {
-
-    cout << "\n      ########  ####  ######   ######  ####  #######  ##    ##    ###    ########  ####  ####### \n";
-    cout << "      ##     ##  ##  ##    ## ##    ##  ##  ##     ## ###   ##   ## ##   ##     ##  ##  ##     ##\n";
-    cout << "      ##     ##  ##  ##       ##        ##  ##     ## ####  ##  ##   ##  ##     ##  ##  ##     ##\n";
-    cout << "      ##     ##  ##  ##       ##        ##  ##     ## ## ## ## ##     ## ########   ##  ##     ##\n";
-    cout << "      ##     ##  ##  ##       ##        ##  ##     ## ##  #### ######### ##   ##    ##  ##     ##\n";
-    cout << "      ##     ##  ##  ##    ## ##    ##  ##  ##     ## ##   ### ##     ## ##    ##   ##  ##     ##\n";
-    cout << "      ########  ####  ######   ######  ####  #######  ##    ## ##     ## ##     ## ####  ####### \n\n";
+cout << "\n██╗     ██╗██████╗ ██████╗  ██████╗     ██████╗ ███████╗                      \n";
+cout << "██║     ██║██╔══██╗██╔══██╗██╔═══██╗    ██╔══██╗██╔════╝                      \n";
+cout << "██║     ██║██████╔╝██████╔╝██║   ██║    ██║  ██║█████╗                        \n";
+cout << "██║     ██║██╔══██╗██╔══██╗██║   ██║    ██║  ██║██╔══╝                        \n";
+cout << "███████╗██║██████╔╝██║  ██║╚██████╔╝    ██████╔╝███████╗                      \n";
+cout << "╚══════╝╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝     ╚═════╝ ╚══════╝                      \n";
+cout << "                                                                              \n";
+cout << " ██████╗ ██████╗ ███╗   ██╗████████╗ █████╗  ██████╗████████╗ ██████╗ ███████╗\n";
+cout << "██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔════╝╚══██╔══╝██╔═══██╗██╔════╝\n";
+cout << "██║     ██║   ██║██╔██╗ ██║   ██║   ███████║██║        ██║   ██║   ██║███████╗\n";
+cout << "██║     ██║   ██║██║╚██╗██║   ██║   ██╔══██║██║        ██║   ██║   ██║╚════██║\n";
+cout << "╚██████╗╚██████╔╝██║ ╚████║   ██║   ██║  ██║╚██████╗   ██║   ╚██████╔╝███████║\n";
+cout << " ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═╝    ╚═════╝ ╚══════╝\n";
+                                                                              
 }

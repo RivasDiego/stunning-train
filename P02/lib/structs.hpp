@@ -20,4 +20,4 @@ struct node
 
 typedef struct node Node;
 
-const Contact invalidData = {"INVALID_DATA", "INVALID_DATA", "INVALID_DATA", "INVALID_DATA"};
+Contact invalidData = {"INVALID_DATA", "INVALID_DATA", "INVALID_DATA", "INVALID_DATA"};
