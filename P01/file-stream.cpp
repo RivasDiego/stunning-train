@@ -4,14 +4,19 @@
 #include <algorithm>
 #include "lib/functions.hpp"
 
+const char words_file_address [] = "res/words_dataFile.txt";
+const char definitions_file_address [] = "res/defs_dataFile.txt";
+const char synonyms_file_address [] = "res/syns_dataFile.txt";
+const char antonyms_file_address [] = "res/ants_dataFile.txt";
+
 void SaveToFiles(Node **list)
 {
     ClearFiles();
 
-    fstream words_dataFile("res/words_dataFile.txt", ios::out | ios::app);
-    fstream defs_dataFile("res/defs_dataFile.txt", ios::out | ios::app);
-    fstream syns_dataFile("res/syns_dataFile.txt", ios::out | ios::app);
-    fstream ants_dataFile("res/ants_dataFile.txt", ios::out | ios::app);
+    fstream words_dataFile(words_file_address, ios::out | ios::app);
+    fstream defs_dataFile(definitions_file_address, ios::out | ios::app);
+    fstream syns_dataFile(synonyms_file_address, ios::out | ios::app);
+    fstream ants_dataFile(antonyms_file_address, ios::out | ios::app);
 
     if (IsEmpty(list))
         return;
@@ -47,21 +52,21 @@ Node *ReadFiles()
 {
     Node *p__list = NULL;
 
-    fstream words_dataFile("res/words_dataFile.txt", ios::out | ios::app);
+    fstream words_dataFile(words_file_address, ios::out | ios::app);
     words_dataFile.close();
-    words_dataFile.open("res/words_dataFile.txt", ios::in);
+    words_dataFile.open(words_file_address, ios::in);
 
-    fstream defs_dataFile("res/defs_dataFile.txt", ios::out | ios::app);
+    fstream defs_dataFile(definitions_file_address, ios::out | ios::app);
     defs_dataFile.close();
-    defs_dataFile.open("res/defs_dataFile.txt", ios::in);
+    defs_dataFile.open(definitions_file_address, ios::in);
 
-    fstream syns_dataFile("res/syns_dataFile.txt", ios::out | ios::app);
+    fstream syns_dataFile(synonyms_file_address, ios::out | ios::app);
     syns_dataFile.close();
-    syns_dataFile.open("res/syns_dataFile.txt", ios::in);
+    syns_dataFile.open(synonyms_file_address, ios::in);
 
-    fstream ants_dataFile("res/ants_dataFile.txt", ios::out | ios::app);
+    fstream ants_dataFile(antonyms_file_address, ios::out | ios::app);
     ants_dataFile.close();
-    ants_dataFile.open("res/ants_dataFile.txt", ios::in);
+    ants_dataFile.open(antonyms_file_address, ios::in);
 
     string temp_string = "";
     Word p__word = invalidData;
@@ -113,10 +118,10 @@ Node *ReadFiles()
 
 void ClearFiles()
 {
-    remove("res/words_dataFile.txt");
-    remove("res/defs_dataFile.txt");
-    remove("res/syns_dataFile.txt");
-    remove("res/ants_dataFile.txt");
+    remove(words_file_address);
+    remove(definitions_file_address);
+    remove(synonyms_file_address);
+    remove(antonyms_file_address);
 
     return;
 }
