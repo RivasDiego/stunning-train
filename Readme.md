@@ -1,9 +1,4 @@
-<a id="top" href="#">
-    <h1 align="center">
-        <img style="border-radius: 15px;" src="https://i.imgur.com/uekVX44.jpg">
-    </h1>
-</a>
-
+### ![Banner](https://i.imgur.com/uekVX44.jpg)
 El proyecto consiste en generar una solución informática que implemente estructuras de datos dinámica (colas, pilas, listas y árboles), que más se adapte a la naturaleza del problema y le permita al usuario final interactuar con las diferentes opciones que presente el programa con facilidad.
 
 Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el curso de programación de estructuras dinámicas a través de la creación de un programa basado en el lenguaje de C++.
@@ -128,4 +123,4 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 
 > __*Nota será diferenciada para cada miembro del equipo*__.
 
-### [Volver al inicio](#top)
+### [Volver al inicio](#banner)
