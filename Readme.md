@@ -18,6 +18,7 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 * [Proyecto Número 6](#proyecto-6)
 
 
+
 ## Proyecto 1
 
     Crear un programa que simule un diccionario que cuente como máximo con 5 palabras por cada letra 
