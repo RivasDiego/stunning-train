@@ -158,7 +158,19 @@ void RemoveWord(Node **list, string word)
 
 void RemoveAll(Node **list)
 {
+    Node *temp_pointer_current = *list;
+    Node *temp_pointer_next = NULL;
+
+    while (temp_pointer_current != NULL)
+    {
+        temp_pointer_next = temp_pointer_current->next;
+        delete (temp_pointer_current);
+        temp_pointer_current = temp_pointer_next;
+    }
+    *list = NULL;
     
+    cout << "La operacion se ejecuto exitosamente\n";
+    return;
 }
 
 Node *CreateNode(T element)

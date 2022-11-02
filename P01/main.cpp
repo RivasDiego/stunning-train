@@ -148,7 +148,8 @@ void RemoveElements(Node **list)
             break;
         case 4:
             RemoveAll(list);
-            show_menu = true;
+            show_menu = false;
+            break;
         case 5:
             show_menu = false;
             break;
