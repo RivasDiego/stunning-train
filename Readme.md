@@ -1,8 +1,4 @@
-<a id="top" href="#">
-    <h1 align="center">
-        <img style="border-radius: 15px;" src="https://i.imgur.com/uekVX44.jpg">
-    </h1>
-</a>
+# <img id="top" style="border-radius: 15px;" src="https://i.imgur.com/uekVX44.jpg">  
 
 El proyecto consiste en generar una solución informática que implemente estructuras de datos dinámica (colas, pilas, listas y árboles), que más se adapte a la naturaleza del problema y le permita al usuario final interactuar con las diferentes opciones que presente el programa con facilidad.
 
