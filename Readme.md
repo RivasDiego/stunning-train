@@ -14,7 +14,7 @@ Objetivo: Aplicar los conocimientos teórico-práctico adquiridos durante el cur
 ### [Criterios de evaluación](#criterios)
 
 ## Listado de proyectos
-* [Proyecto Número 1](https://github.com/RivasDiego/stunning-train/tree/P01)
+* [Proyecto Número 1](#proyecto-1)
 * [Proyecto Número 2](#proyecto-2)
 * [Proyecto Número 3](#proyecto-3)
 * [Proyecto Número 4](#proyecto-4)
