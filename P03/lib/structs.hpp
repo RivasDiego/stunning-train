@@ -9,7 +9,6 @@ struct street{
     int hosues;
 };
 typedef struct street Street;
-
 typedef Street T;
 
 struct tree_node{
