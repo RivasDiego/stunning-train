@@ -9,19 +9,19 @@ struct house{
 };
 typedef struct house House;
 
-struct street{
-    int ID;
-    string name;
-    bool is_private;
-    House* hosues = NULL;
-};
-typedef struct street Street;
-
 struct house_node{
     House element;
     House* next;
 };
 typedef struct house_node HouseNode;
+
+struct street{
+    int ID;
+    string name;
+    bool is_private;
+    HouseNode* hosues = NULL;
+};
+typedef struct street Street;
 
 struct tree_node{
     Street element;
