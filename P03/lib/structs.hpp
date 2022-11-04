@@ -10,14 +10,18 @@ struct house{
 typedef struct house House;
 
 struct street{
-    string ID;
+    int ID;
     string name;
     bool is_private;
     House* hosues = NULL;
 };
-
 typedef struct street Street;
-typedef Street T;
+
+struct house_node{
+    House element;
+    House* next;
+};
+typedef struct house_node HouseNode;
 
 struct tree_node{
     Street element;
