@@ -10,6 +10,8 @@ struct street{
 };
 typedef struct street Street;
 
+typedef Street T;
+
 struct tree_node{
 
     struct tree_node* left_child;
