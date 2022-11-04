@@ -2,18 +2,26 @@
 
 using namespace std;
 
+struct house{
+    string number;
+    string color;
+    int people;
+};
+typedef struct house House;
+
 struct street{
     string ID;
     string name;
     bool is_private;
-    int hosues;
+    House* hosues = NULL;
 };
+
 typedef struct street Street;
 typedef Street T;
 
 struct tree_node{
-
-    struct tree_node* left_child;
-    struct tree_node* right_child;
+    Street element;
+    struct tree_node* left_child = NULL;
+    struct tree_node* right_child = NULL;
 };
-typedef struct tree_node Node;
+typedef struct tree_node TreeNode;
