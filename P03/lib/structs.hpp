@@ -15,6 +15,8 @@ struct house_node{
 };
 typedef struct house_node HouseNode;
 
+const House INVALID_HOUSE = {"INVALID_DATA","",-1};
+
 struct street{
     int ID;
     string name;
@@ -29,3 +31,5 @@ struct tree_node{
     struct tree_node* right_child = NULL;
 };
 typedef struct tree_node TreeNode;
+
+const Street INVALID_STREET = {-1, "INVALID_DATA", NULL}; 

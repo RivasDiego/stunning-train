@@ -14,8 +14,7 @@ Street new_street()
 
     srand(time(NULL));
     p__street.ID = rand() % 1000 + 1;
-    
-    cin.ignore();
+
     cout << "Ingrese el nombre de la calle: ";
     getline(cin, p__street.name);
     while (p__street.name == "")
@@ -50,8 +49,9 @@ Street new_street()
     return p__street;
 }
 
-TreeNode* new_node(Street data) {
-    TreeNode* p__tree_node = new TreeNode;
+TreeNode *new_node(Street data)
+{
+    TreeNode *p__tree_node = new TreeNode;
     p__tree_node->element = data;
     p__tree_node->left_child = NULL;
     p__tree_node->right_child = NULL;
@@ -59,12 +59,16 @@ TreeNode* new_node(Street data) {
     return p__tree_node;
 }
 
-void add_node(Street data, TreeNode **tree) {
-    TreeNode* p__node = new_node(data);
-    
-    if ((*tree) == NULL){
+void add_node(Street data, TreeNode **tree)
+{
+    TreeNode *p__node = new_node(data);
+
+    if ((*tree) == NULL)
+    {
         *tree = p__node;
-    }else{
+    }
+    else
+    {
         int id_in_tree = (*tree)->element.ID;
 
         if (p__node->element.ID < id_in_tree)
@@ -75,20 +79,27 @@ void add_node(Street data, TreeNode **tree) {
     return;
 }
 
-TreeNode search_node_by_id(int ID, TreeNode **tree) {}
+TreeNode *search_node(int ID, TreeNode **tree)
+{
+    if ((*tree) == NULL)
+        return new_node(INVALID_STREET);
+    else if ((*tree)->element.ID == ID)
+        return (*tree);
+    else if (ID < (*tree)->element.ID)
+        return search_node(ID, &(*tree)->left_child);
+    else
+        return search_node(ID, &(*tree)->right_child);
+}
 
-TreeNode search_node_by_name(string street_name, TreeNode **tree) {}
-
-void delete_node_by_id(int ID, TreeNode **tree) {}
-
-void delete_node_by_name(string street_name, TreeNode **tree) {}
-
+void delete_node(int ID, TreeNode **tree) {}
 
 void print_street(Street data)
 {
     if (data.name == "INVALID_DATA")
     {
+        cout << "\n--------------------------------------------";
         cout << "\n\t\t***ERROR***\nNo se puede imprimir el registro...\n";
+        cout << "--------------------------------------------";
         return;
     }
     cout << "\n--------------------------------------------";
@@ -101,20 +112,24 @@ void print_street(Street data)
 }
 void print_street(int ID, TreeNode **tree) {}
 
-void print_tree(TreeNode *root, int counter){
+void print_tree(TreeNode *root, int counter)
+{
     if (root == NULL)
         return;
-    else{
-        print_tree(root->right_child, counter+1);
+    else
+    {
+        print_tree(root->right_child, counter + 1);
         for (int i = 0; i < counter; i++)
             cout << "    ";
-        cout << root->element.name << " " << root->element.ID <<   "\n";
-        print_tree(root->left_child, counter+1);
+        cout << root->element.name << " " << root->element.ID << "\n";
+        print_tree(root->left_child, counter + 1);
     }
 }
 
-void print_tree(TreeNode *root){
+void print_tree(TreeNode *root)
+{
     int counter = 0;
+    cout << "\n";
     print_tree(root, counter);
     cout << "\n";
     return;
