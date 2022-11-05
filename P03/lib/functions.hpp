@@ -8,11 +8,14 @@ using namespace std;
 Street new_street();
 TreeNode* new_node(Street data);
 void add_node(Street data, TreeNode **tree);
-TreeNode* search_node(int ID, TreeNode **tree);
+TreeNode* search_node(int ID, TreeNode *tree);
+TreeNode *search_parent_node(int ID, TreeNode *tree);
+TreeNode *search_parent_node_helper(int ID, TreeNode *tree);
+TreeNode* search_min_node(TreeNode *tree);
 void delete_node(int ID, TreeNode **tree);
 void print_street(Street data);
 void print_street(int ID, TreeNode** tree);
-void print_street(string name, TreeNode** tree);
+void print_street(string name, TreeNode* tree);
 void print_tree(TreeNode *root, int counter);
 void print_tree(TreeNode *root);
 

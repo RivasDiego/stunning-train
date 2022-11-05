@@ -64,13 +64,10 @@ void add_node(Street data, TreeNode **tree)
     TreeNode *p__node = new_node(data);
 
     if ((*tree) == NULL)
-    {
         *tree = p__node;
-    }
     else
     {
         int id_in_tree = (*tree)->element.ID;
-
         if (p__node->element.ID < id_in_tree)
             add_node(data, &(*tree)->left_child);
         else
@@ -79,19 +76,51 @@ void add_node(Street data, TreeNode **tree)
     return;
 }
 
-TreeNode *search_node(int ID, TreeNode **tree)
+TreeNode *search_node(int ID, TreeNode *tree)
 {
-    if ((*tree) == NULL)
-        return new_node(INVALID_STREET);
-    else if ((*tree)->element.ID == ID)
-        return (*tree);
-    else if (ID < (*tree)->element.ID)
-        return search_node(ID, &(*tree)->left_child);
-    else
-        return search_node(ID, &(*tree)->right_child);
+    if (!(tree == NULL))
+    {
+        if (tree->element.ID == ID)
+            return tree;
+        if (ID < tree->element.ID)
+            return search_node(ID, tree->left_child);
+        return search_node(ID, tree->right_child);
+    }
+    return new_node(INVALID_STREET);
 }
 
-void delete_node(int ID, TreeNode **tree) {}
+TreeNode *search_parent_node_helper(int ID, TreeNode *current_node, TreeNode *parent)
+{
+    if (!(current_node == NULL))
+    {
+        if (current_node->element.ID == ID)
+            return parent;
+        if (ID < current_node->element.ID)
+            return search_parent_node_helper(ID, current_node->left_child, current_node);
+        return search_parent_node_helper(ID, current_node->right_child, current_node);
+    }
+    return new_node(INVALID_STREET);
+}
+
+TreeNode *search_parent_node(int ID, TreeNode *tree)
+{
+    return search_parent_node_helper(ID, tree, NULL);
+}
+
+TreeNode *search_min_node(TreeNode *tree)
+{
+    if (!(tree == NULL))
+    {
+        if (tree->left_child)
+            return search_min_node(tree->left_child);
+        return tree;
+    }
+    return NULL;
+}
+
+void delete_node(int ID, TreeNode **tree)
+{
+}
 
 void print_street(Street data)
 {
@@ -110,7 +139,7 @@ void print_street(Street data)
     cout << "\n--------------------------------------------";
     return;
 }
-void print_street(int ID, TreeNode **tree) {}
+void print_street(int ID, TreeNode *tree) {}
 
 void print_tree(TreeNode *root, int counter)
 {
