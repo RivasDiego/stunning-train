@@ -72,12 +72,22 @@ Node *search_parent_node_helper(int ID, Node *current_node, Node *parent)
             return search_parent_node_helper(ID, current_node->left_child, current_node);
         return search_parent_node_helper(ID, current_node->right_child, current_node);
     }
-    return new_node(INVALID_STREET);
+    return NULL;
 }
 
 Node *search_parent_node(int ID, Node *tree)
 {
-    return search_parent_node_helper(ID, tree, NULL);
+    Node* p__node = new Node;
+    Node* temp_node = search_node(ID, tree);
+
+    p__node = search_parent_node_helper(ID, tree, NULL);
+    if (p__node == NULL && temp_node->element.ID == -1)
+        return new_node(INVALID_STREET);
+    if (p__node == NULL){
+        cout << "\nEste nodo es raiz!";
+        return tree;
+    }
+    return p__node; 
 }
 
 Node *search_min_node(Node *tree)
