@@ -15,6 +15,11 @@ Node *search_parent_node(int ID, Node *tree);
 Node *search_min_node(Node *tree);
 void swap_nodes(Node** old_node, Node** new_node);
 void delete_node(Node** node_to_delete, Node** parent_of_node_to_delete);
+bool is_leaf(Node* node);
+bool has_only_left(Node* node);
+bool has_only_right(Node* node);
+bool has_both(Node* node);
+bool is_root(Node* node, Node* parent);
 
 // Street functions
 

@@ -26,9 +26,14 @@ int main () {
     print_street(test_node->element);
     
     print_tree(RootNode);
-    int n = 3;
+    int n = 1;
     test_node = search_node(n, RootNode);
     Node* parent_node = search_parent_node(n, RootNode);
+    delete_node(&test_node, &parent_node);
+    
+    n = 7;
+    test_node = search_node(n, RootNode);
+    parent_node = search_parent_node(n, RootNode);
     delete_node(&test_node, &parent_node);
 
     print_tree(RootNode);

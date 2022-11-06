@@ -4,8 +4,8 @@
 
 using namespace std;
 
-Node* new_node(Street data) {
-    Node* p__tree_node = new Node;
+Node *new_node(Street data){
+    Node *p__tree_node = new Node;
     p__tree_node->element = data;
     p__tree_node->left_child = NULL;
     p__tree_node->right_child = NULL;
@@ -13,31 +13,33 @@ Node* new_node(Street data) {
     return p__tree_node;
 }
 
-void add_node(Street data, Node **tree) {
-    Node* p__node = new_node(data);
+void add_node(Street data, Node **tree){
+    Node *p__node = new_node(data);
 
-    if ((*tree) == NULL){
+    if ((*tree) == NULL)
+    {
         *tree = p__node;
-    }else{
-        int id_in_tree = (*tree)->element.ID;
-
-        if (p__node->element.ID < id_in_tree)
-            add_node(data, &(*tree)->left_child);
-        else
-            add_node(data, &(*tree)->right_child);
+        return;
     }
+    
+    int id_in_tree = (*tree)->element.ID;
+    if (p__node->element.ID < id_in_tree)
+        add_node(data, &(*tree)->left_child);
+    else
+        add_node(data, &(*tree)->right_child);
     return;
 }
 
 void print_tree(Node *root, int counter){
     if (root == NULL)
         return;
-    else{
-        print_tree(root->right_child, counter+1);
+    else
+    {
+        print_tree(root->right_child, counter + 1);
         for (int i = 0; i < counter; i++)
             cout << "    ";
-        cout << root->element.name << " " << root->element.ID <<   "\n";
-        print_tree(root->left_child, counter+1);
+        cout << root->element.name << " " << root->element.ID << "\n";
+        print_tree(root->left_child, counter + 1);
     }
 }
 
@@ -49,8 +51,7 @@ void print_tree(Node *root){
     return;
 }
 
-Node *search_node(int ID, Node *tree)
-{
+Node *search_node(int ID, Node *tree){
     if (!(tree == NULL))
     {
         if (tree->element.ID == ID)
@@ -62,8 +63,7 @@ Node *search_node(int ID, Node *tree)
     return new_node(INVALID_STREET);
 }
 
-Node *search_parent_node_helper(int ID, Node *current_node, Node *parent)
-{
+Node *search_parent_node_helper(int ID, Node *current_node, Node *parent){
     if (!(current_node == NULL))
     {
         if (current_node->element.ID == ID)
@@ -75,23 +75,21 @@ Node *search_parent_node_helper(int ID, Node *current_node, Node *parent)
     return NULL;
 }
 
-Node *search_parent_node(int ID, Node *tree)
-{
-    Node* p__node = new Node;
-    Node* temp_node = search_node(ID, tree);
+Node *search_parent_node(int ID, Node *tree){
+    Node *p__node = new Node;
+    Node *temp_node = search_node(ID, tree);
 
     p__node = search_parent_node_helper(ID, tree, NULL);
     if (p__node == NULL && temp_node->element.ID == -1)
         return new_node(INVALID_STREET);
-    if (p__node == NULL){
-        cout << "\nEste nodo es raiz!";
+    if (p__node == NULL)
+    {
         return tree;
     }
-    return p__node; 
+    return p__node;
 }
 
-Node *search_min_node(Node *tree)
-{
+Node *search_min_node(Node *tree){
     if (!(tree == NULL))
     {
         if (tree->left_child)
@@ -101,20 +99,35 @@ Node *search_min_node(Node *tree)
     return NULL;
 }
 
-void swap_nodes(Node* old_node, Node* new_node) {
-
+void swap_nodes(Node** old_node, Node** new_node){
 }
-void delete_node(Node** node_to_delete, Node** parent_of_node_to_delete)
-{
-    if ((*node_to_delete)->left_child == NULL && (*node_to_delete)->right_child == NULL){
-        if((*parent_of_node_to_delete)->left_child == *node_to_delete){
-            delete(*node_to_delete);
+void delete_node(Node **node_to_delete, Node **parent_of_node_to_delete){
+    if (is_leaf(*node_to_delete))
+    {
+        if ((*parent_of_node_to_delete)->left_child == *node_to_delete)
+        {
+            delete (*node_to_delete);
             (*parent_of_node_to_delete)->left_child = NULL;
+            return;
         }
-        if((*parent_of_node_to_delete)->right_child == *node_to_delete){
-            delete(*node_to_delete);
-            (*parent_of_node_to_delete)->right_child = NULL;
-        }
+        delete (*node_to_delete);
+        (*parent_of_node_to_delete)->right_child = NULL;
         return;
     }
+}
+
+bool is_leaf(Node *node){
+    return node->left_child == NULL && node->right_child == NULL;
+}
+bool has_only_left(Node *node) {
+    return node->left_child != NULL && node->right_child == NULL;
+}
+bool has_only_right(Node *node) {
+    return node->left_child == NULL && node->right_child != NULL;
+}
+bool has_both(Node *node) {
+    return node->left_child != NULL && node->right_child != NULL;
+}
+bool is_root(Node *node, Node *parent) {
+    return node == parent;
 }
