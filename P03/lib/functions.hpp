@@ -13,6 +13,8 @@ Node *search_node(int ID, Node *tree);
 Node *search_parent_node_helper(int ID, Node *current_node, Node *parent);
 Node *search_parent_node(int ID, Node *tree);
 Node *search_min_node(Node *tree);
+void swap_nodes(Node** old_node, Node** new_node);
+void delete_node(Node** node_to_delete, Node** parent_of_node_to_delete);
 
 // Street functions
 

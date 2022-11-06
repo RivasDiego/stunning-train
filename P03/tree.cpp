@@ -100,3 +100,21 @@ Node *search_min_node(Node *tree)
     }
     return NULL;
 }
+
+void swap_nodes(Node* old_node, Node* new_node) {
+
+}
+void delete_node(Node** node_to_delete, Node** parent_of_node_to_delete)
+{
+    if ((*node_to_delete)->left_child == NULL && (*node_to_delete)->right_child == NULL){
+        if((*parent_of_node_to_delete)->left_child == *node_to_delete){
+            delete(*node_to_delete);
+            (*parent_of_node_to_delete)->left_child = NULL;
+        }
+        if((*parent_of_node_to_delete)->right_child == *node_to_delete){
+            delete(*node_to_delete);
+            (*parent_of_node_to_delete)->right_child = NULL;
+        }
+        return;
+    }
+}
