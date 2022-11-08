@@ -100,7 +100,10 @@ Node *search_min_node(Node *tree){
 }
 
 void swap_nodes(Node** old_node, Node** new_node){
+    Node* temp_node = *old_node;
+    (*old_node)->element = (*new_node)->element;
 }
+
 void delete_node(Node **node_to_delete, Node **parent_of_node_to_delete){
     if (is_leaf(*node_to_delete))
     {
@@ -113,6 +116,20 @@ void delete_node(Node **node_to_delete, Node **parent_of_node_to_delete){
         delete (*node_to_delete);
         (*parent_of_node_to_delete)->right_child = NULL;
         return;
+    }
+    if (has_both(*node_to_delete)){
+        Node* min = search_min_node((*node_to_delete)->right_child);
+        Node* min_parent = search_parent_node(min->element.ID, (*node_to_delete));
+        (*node_to_delete)->element = min->element;
+        delete_node(&min, &min_parent);
+    }
+    if (has_only_left(*node_to_delete)){
+        swap_nodes(node_to_delete, &(*node_to_delete)->left_child);
+        delete_node(&(*node_to_delete)->left_child,node_to_delete);
+    }
+    if (has_only_right(*node_to_delete)){
+        swap_nodes(node_to_delete, &(*node_to_delete)->right_child);
+        delete_node(&(*node_to_delete)->right_child,node_to_delete);
     }
 }
 
