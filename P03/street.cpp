@@ -51,18 +51,18 @@ Street new_street()
     return p__street;
 }
 
-void print_street(Street data)
+void print_street(Street street)
 {
-    if (data.name == "INVALID_DATA")
+    if (street.name == "INVALID_DATA")
     {
         cout << "\n\t\t***ERROR***\nNo se puede imprimir el registro...\n";
         return;
     }
     cout << "\n--------------------------------------------";
-    cout << "\nNombre: " << data.name;
-    cout << "\nID: " << data.ID;
-    cout << "\nEs privada: " << (data.is_private ? "Si" : "No");
-    // cout << "\nNumero de casas: " << list_size(data.hosues);
+    cout << "\nNombre: " << street.name;
+    cout << "\nID: " << street.ID;
+    cout << "\nEs privada: " << (street.is_private ? "Si" : "No");
+    // cout << "\nNumero de casas: " << list_size(street.hosues);
     cout << "\n--------------------------------------------";
     return;
 }

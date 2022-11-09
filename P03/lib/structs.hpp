@@ -9,7 +9,7 @@ typedef struct house House;
 
 struct house_node{
     House element;
-    House* next;
+    struct house_node* next;
 };
 typedef struct house_node HouseNode;
 

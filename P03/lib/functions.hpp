@@ -27,8 +27,19 @@ Street new_street();
 void print_street(Street data);
 void print_street(int ID, Node *tree);
 
+// House functions
+
+House new_house();
+void print_house( House house);
+void print_house(string number, HouseNode* list);
+
 // List functions
 
-// House functions
+HouseNode* new_house_node(House element);
+void add_house(House data, HouseNode **list);
+bool list_empty(HouseNode *list);
+HouseNode* find_house_node(HouseNode *list, string house_number);
+void print_list(HouseNode *list);
+void remove_house(HouseNode **list, string word);
 
 // File functions
