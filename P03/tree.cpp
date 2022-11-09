@@ -31,8 +31,10 @@ void add_node(Street data, Node **tree){
 }
 
 void print_tree(Node *root, int counter){
-    if (root == NULL)
+    if (is_tree_empty(root)){
+        cout << "El arbol esta vacio...";
         return;
+    }
     else
     {
         print_tree(root->right_child, counter + 1);
