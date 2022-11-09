@@ -45,4 +45,11 @@ int main () {
 
     print_tree(RootNode);
 
+    cout <<"\nIn Order\n";
+    inorder_traversal(RootNode);
+    cout <<"\nPre Order\n";
+    preorder_traversal(RootNode);
+    cout <<"\nPost Order\n";
+    postorder_traversal(RootNode);
+
 }

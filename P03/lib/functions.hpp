@@ -20,6 +20,10 @@ bool has_only_left(Node* node);
 bool has_only_right(Node* node);
 bool has_both(Node* node);
 bool is_root(Node* node, Node* parent);
+bool is_tree_empty(Node *root);
+void inorder_traversal(Node* tree);
+void preorder_traversal(Node* tree);
+void postorder_traversal(Node* tree);
 
 // Street functions
 

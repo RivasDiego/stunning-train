@@ -148,3 +148,29 @@ bool has_both(Node *node) {
 bool is_root(Node *node, Node *parent) {
     return node == parent;
 }
+
+bool is_tree_empty(Node *root)
+{
+    return root == NULL;
+}
+void inorder_traversal(Node* tree){
+    if (is_tree_empty(tree))
+        return;
+    inorder_traversal(tree->left_child);
+    cout << tree->element.ID << ", ";
+    inorder_traversal(tree->right_child);
+}
+void preorder_traversal(Node* tree){
+    if (is_tree_empty(tree))
+        return;
+    cout << tree->element.ID << ", ";
+    preorder_traversal(tree->left_child);
+    preorder_traversal(tree->right_child);
+}
+void postorder_traversal(Node* tree){
+    if (is_tree_empty(tree))
+        return;
+    postorder_traversal(tree->left_child);
+    postorder_traversal(tree->right_child);
+    cout << tree->element.ID << ", ";
+}
