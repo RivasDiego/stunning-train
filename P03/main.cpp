@@ -1,5 +1,7 @@
 #include <iostream>
 #include <iostream>
+#include <algorithm>
+#include <typeinfo>
 #include <string>
 #include <stdlib.h>
 #include <time.h>
@@ -7,9 +9,18 @@
 
 using namespace std;
 
-int main () {
+void show_tree(Node *tree);
+void _delete_node(Node **tree);
+void house_menu();
+void print_banner();
 
-    Node* RootNode = NULL;
+int main()
+{
+
+    int menu_option = 0;
+    bool show_menu = true;
+    Node *RootNode = NULL;
+    print_banner();
 
     add_node({8, "A", true}, &RootNode);
     add_node({4, "B", true}, &RootNode);
@@ -27,29 +38,124 @@ int main () {
     add_node({13, "N", true}, &RootNode);
     add_node({15, "O", true}, &RootNode);
 
-    Node* test_node = search_node(1, RootNode);
-    print_street(test_node->element);
+    do
+    {
+        cout << "\nMENU PRINCIPAL\n";
+        cout << "\t1 - Agregar registros\n";
+        cout << "\t2 - Eliminar registros\n";
+        cout << "\t3 - Mostrar registros actuales\n";
+        cout << "\t4 - Menu de casas\n";
+        cout << "\t5 - Salir\n";
+        cout << "\nPor favor, ingrese una opcion: ";
+        cin >> menu_option;
+        switch (menu_option)
+        {
+        case 1:
+            add_node(new_street(), &RootNode);
+            show_menu = true;
+            break;
+        case 2:
+            _delete_node(&RootNode);
+            show_menu = true;
+            break;
+        case 3:
+            show_tree(RootNode);
+            show_menu = true;
+            break;
+        case 4:
+            show_menu = true;
+            break;
+        case 5:
+            show_menu = false;
+            break;
 
-    add_house({"507", "Green", 2}, &(test_node->element.hosues));
-    add_house({"88A", "Yellow", 5}, &(test_node->element.hosues));
-    add_house({"951", "Black", 7}, &(test_node->element.hosues));
-    add_house({"234", "Blue", 1}, &(test_node->element.hosues));
-    add_house({"1-A", "Red", 3}, &(test_node->element.hosues));
+        default:
+            cout << "La opcion ingresada no es valida. Por favor, intentar de nuevo\n\n";
+            show_menu = true;
+            break;
+        }
+    } while (show_menu);
 
-    print_list(test_node->element.hosues);
+    return 0;
+}
 
-    print_house("1-A", test_node->element.hosues);
-    remove_house(&(test_node->element.hosues), "234");
-    
-    print_list(test_node->element.hosues);
+void show_tree(Node *tree)
+{
+    int menu_option;
+    bool show_menu = true;
+    int ui_street_id;
+    do
+    {
+        cout << "\n---- Mostrar registros -----\n";
+        cout << "\t1 - Mostrar todos los registros en forma de arbol\n";
+        cout << "\t2 - Mostrar todos los registros en In-Orden\n";
+        cout << "\t3 - Mostrar todos los registros en Pre-Orden\n";
+        cout << "\t4 - Mostrar todos los registros en Post-Orden\n";
+        cout << "\t5 - Mostrar el registro de algun ID de calle\n";
+        cout << "\t6 - Salir\n";
+        cout << "Por favor, ingrese una opcion: ";
+        cin >> menu_option;
+        switch (menu_option)
+        {
+        case 1:
+            print_tree(tree);
+            show_menu = true;
+            break;
+        case 2:
+            inorder_traversal(tree);
+            show_menu = true;
+            break;
+        case 3:
+            preorder_traversal(tree);
+            show_menu = true;
+            break;
+        case 4:
+            postorder_traversal(tree);
+            show_menu = true;
+            break;
+        case 5:
+            cout << "Ingrese el ID de la calle a buscar: ";
+            cin >> ui_street_id;
+            print_street(ui_street_id, tree);
+            ui_street_id = 0;
+            show_menu = true;
+            break;
+        case 6:
+            show_menu = false;
+            break;
+        default:
+            cout << "La opcion ingresada no es valida. Por favor, intentar de nuevo\n\n";
+            show_menu = true;
+            break;
+        }
+    } while (show_menu);
+}
 
-    print_tree(RootNode);
+void _delete_node(Node **tree)
+{
+    int ui_street_id;
+    cout << "Ingrese el ID de la calle a buscar: ";
+    cin >> ui_street_id;
+    Node *node_to_delete = search_node(ui_street_id, (*tree));
+    Node *parent_node_to_delete = search_parent_node(ui_street_id, (*tree));
+    delete_node(&node_to_delete, &parent_node_to_delete);
+}
+void house_menu();
 
-    cout <<"\nIn Order\n";
-    inorder_traversal(RootNode);
-    cout <<"\nPre Order\n";
-    preorder_traversal(RootNode);
-    cout <<"\nPost Order\n";
-    postorder_traversal(RootNode);
-
+void print_banner()
+{
+    cout << "\n   ###    ########  ########   #######  ##          ########  ######## \n";
+    cout << "  ## ##   ##     ## ##     ## ##     ## ##          ##     ## ##       \n";
+    cout << " ##   ##  ##     ## ##     ## ##     ## ##          ##     ## ##       \n";
+    cout << "##     ## ########  ########  ##     ## ##          ##     ## ######   \n";
+    cout << "######### ##   ##   ##     ## ##     ## ##          ##     ## ##       \n";
+    cout << "##     ## ##    ##  ##     ## ##     ## ##          ##     ## ##       \n";
+    cout << "##     ## ##     ## ########   #######  ########    ########  ######## \n\n";
+    cout << " ######     ###    ##       ##       ########  ######                  \n";
+    cout << "##    ##   ## ##   ##       ##       ##       ##    ##                 \n";
+    cout << "##        ##   ##  ##       ##       ##       ##                       \n";
+    cout << "##       ##     ## ##       ##       ######    ######                  \n";
+    cout << "##       ######### ##       ##       ##             ##                 \n";
+    cout << "##    ## ##     ## ##       ##       ##       ##    ##                 \n";
+    cout << " ######  ##     ## ######## ######## ########  ######                  \n";
 }
