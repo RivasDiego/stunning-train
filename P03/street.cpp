@@ -66,4 +66,9 @@ void print_street(Street street)
     cout << "\n--------------------------------------------";
     return;
 }
-void print_street(int ID, Node *tree) {}
+
+void print_street(int ID, Node *tree) {
+    Node* p_node = search_node(ID, tree);
+    print_street(p_node->element);
+    return;
+}

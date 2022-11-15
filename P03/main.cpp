@@ -114,7 +114,7 @@ void show_tree(Node *tree)
             show_menu = true;
             break;
         case 5:
-            cout << "Ingrese el ID de la calle a buscar: ";
+            cout << "Ingrese el ID de la calle a imprimir: ";
             cin >> ui_street_id;
             print_street(ui_street_id, tree);
             ui_street_id = 0;
@@ -134,11 +134,17 @@ void show_tree(Node *tree)
 void _delete_node(Node **tree)
 {
     int ui_street_id;
-    cout << "Ingrese el ID de la calle a buscar: ";
+    cout << "Ingrese el ID de la calle a eliminar: ";
     cin >> ui_street_id;
     Node *node_to_delete = search_node(ui_street_id, (*tree));
     Node *parent_node_to_delete = search_parent_node(ui_street_id, (*tree));
-    delete_node(&node_to_delete, &parent_node_to_delete);
+    if ((*node_to_delete).element.ID == -1)
+    {
+        cout << "\n\t\t***ERROR***\nNo se puede imprimir el registro...\n";
+        return;
+    }
+    else
+        delete_node(&node_to_delete, &parent_node_to_delete);
 }
 void house_menu();
 
