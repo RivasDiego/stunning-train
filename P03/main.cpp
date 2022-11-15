@@ -138,9 +138,9 @@ void _delete_node(Node **tree)
     cin >> ui_street_id;
     Node *node_to_delete = search_node(ui_street_id, (*tree));
     Node *parent_node_to_delete = search_parent_node(ui_street_id, (*tree));
-    if ((*node_to_delete).element.ID == -1)
+    if (node_to_delete->element.name == "INVALID_DATA")
     {
-        cout << "\n\t\t***ERROR***\nNo se puede imprimir el registro...\n";
+        cout << "\n\t\t***ERROR***\nNo se puede eliminar el registro...\n";
         return;
     }
     else
