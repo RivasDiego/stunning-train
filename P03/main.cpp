@@ -26,12 +26,12 @@ int main()
     add_node({4, "B", true}, &RootNode);
     add_node({12, "C", true}, &RootNode);
     add_node({2, "D", true}, &RootNode);
-    add_node({6, "E", true}, &RootNode);
+    add_node({6, "E", false}, &RootNode);
     add_node({10, "F", true}, &RootNode);
     add_node({14, "G", true}, &RootNode);
     add_node({1, "H", true}, &RootNode);
     add_node({3, "I", true}, &RootNode);
-    add_node({5, "J", true}, &RootNode);
+    add_node({5, "J", false}, &RootNode);
     add_node({7, "K", true}, &RootNode);
     add_node({9, "L", true}, &RootNode);
     add_node({11, "M", true}, &RootNode);

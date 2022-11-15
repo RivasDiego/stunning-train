@@ -159,28 +159,25 @@ bool is_tree_empty(Node *root)
 }
 void inorder_traversal(Node* tree){
     if (is_tree_empty(tree)){
-        cout << "El arbol esta vacio...";
         return;
     }
     inorder_traversal(tree->left_child);
-    cout << tree->element.ID << ", ";
+    print_street(tree->element);
     inorder_traversal(tree->right_child);
 }
 void preorder_traversal(Node* tree){
     if (is_tree_empty(tree)){
-        cout << "El arbol esta vacio...";
         return;
     }
-    cout << tree->element.ID << ", ";
+    print_street(tree->element);
     preorder_traversal(tree->left_child);
     preorder_traversal(tree->right_child);
 }
 void postorder_traversal(Node* tree){
     if (is_tree_empty(tree)){
-        cout << "El arbol esta vacio...";
         return;
     }
     postorder_traversal(tree->left_child);
     postorder_traversal(tree->right_child);
-    cout << tree->element.ID << ", ";
+    print_street(tree->element);
 }
