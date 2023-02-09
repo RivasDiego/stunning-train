@@ -30,6 +30,7 @@ void postorder_traversal(Node* tree);
 Street new_street();
 void print_street(Street data);
 void print_street(int ID, Node *tree);
+bool street_exist(int ID, Node *tree);
 
 // House functions
 

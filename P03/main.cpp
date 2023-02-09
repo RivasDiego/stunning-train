@@ -11,7 +11,7 @@ using namespace std;
 
 void show_tree(Node *tree);
 void _delete_node(Node **tree);
-void house_menu();
+void house_menu(Node *tree);
 void print_banner();
 
 int main()
@@ -63,6 +63,7 @@ int main()
             show_menu = true;
             break;
         case 4:
+            house_menu(RootNode);
             show_menu = true;
             break;
         case 5:
@@ -146,7 +147,79 @@ void _delete_node(Node **tree)
     else
         delete_node(&node_to_delete, &parent_node_to_delete);
 }
-void house_menu();
+
+void house_menu(Node *tree)
+{
+    int menu_option;
+    char id_find;
+    bool show_menu = true;
+    int ui_street_id;
+    string house_number;
+
+    do
+    {
+
+        cout << "Por favor, ingrese el id de una calle: ";
+        cin >> ui_street_id;
+        if (!street_exist(ui_street_id, tree))
+        {
+            cout << "La calle con ese ID no se encuentra entre los registros. ¿Deseas salir?\n";
+            cout << "(S)i\t(N)o\n";
+            cin >> id_find;
+            if (id_find == 'S' || id_find == 's')
+                return;
+        }
+    } while (!street_exist(ui_street_id, tree));
+
+    Node *street = search_node(ui_street_id, tree);
+
+    do
+    {
+
+        cout << "\n---- Menu de casas -----";
+        cout << "\n---- Calle #" << ui_street_id << " -----\n";
+
+        cout << "\t1 - Mostrar todas las casas en la calle\n";
+        cout << "\t2 - Agregar una casa\n";
+        cout << "\t3 - Eliminar una casa\n";
+        cout << "\t4 - Salir\n";
+        cout << "Por favor, ingrese una opcion: ";
+
+        cin >> menu_option;
+        switch (menu_option)
+        {
+        case 1:
+            print_list(street->element.hosues);
+            show_menu = true;
+            break;
+        case 2:
+            cin.ignore();
+            add_house(new_house(), &street->element.hosues);
+            show_menu = true;
+            break;
+        case 3:
+            cout << "Ingresa el numero de casa: ";
+            getline(cin, house_number);
+            while (house_number == "")
+            {
+                cout << "Este campo no puede estar vacio! Intenta de nuevo: ";
+                getline(cin, house_number);
+            }
+
+            remove_house(&street->element.hosues, house_number);
+
+            show_menu = true;
+            break;
+        case 4:
+            show_menu = false;
+            break;
+        default:
+            cout << "La opcion ingresada no es valida. Por favor, intentar de nuevo\n\n";
+            show_menu = true;
+            break;
+        }
+    } while (show_menu);
+}
 
 void print_banner()
 {

@@ -67,6 +67,11 @@ void print_street(Street street)
     return;
 }
 
+bool street_exist(int ID, Node *tree){
+    Node* p_node = search_node(ID, tree);
+    return !(p_node->element.name == "INVALID_DATA");
+}
+
 void print_street(int ID, Node *tree) {
     Node* p_node = search_node(ID, tree);
     print_street(p_node->element);
